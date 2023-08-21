@@ -8,6 +8,7 @@
       <footer>
         <base-button class="empty" @click="contact">Contact</base-button>
         <base-button class="fill" @click="viewDetails">View Details</base-button>
+        <!-- <router-link :to="sampleCom">Contact diri</router-link> -->
       </footer>
     </base-card>
 </template>
@@ -23,6 +24,10 @@ export default {
   computed:{
     hourlyRateText(){
       return '$'+ this.hourlyRate + '/hour'
+    },
+    //tryin using router-link for navigation. this jsut explore2 haha
+    sampleCom(){
+      return '/coaches/'+this.id+'/contact'
     }
   },
   methods:{
@@ -30,7 +35,7 @@ export default {
       this.$router.push('/coaches/'+this.id)
     },
     indexClass(index){
-      console.log(index)
+      // console.log(index)
       return this.colorIndex[index];
     },
     contact(){

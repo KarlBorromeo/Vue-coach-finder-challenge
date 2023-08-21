@@ -3,7 +3,7 @@
   <base-card class="container">
     <div>
         <base-button class="empty">Refresh</base-button>
-        <base-button class="fill" @click="registerForm">Register as Coach</base-button>
+        <base-button v-if="isCoach" class="fill" @click="registerForm">Register as Coach</base-button>
     </div>
     <coach-list v-for="coach in coachList" :key="coach.id"
       :id="coach.id"
@@ -22,7 +22,10 @@ export default {
     components:{FilterSection, CoachList},
     computed:{
         coachList(){
-        return this.$store.getters['coaches/coachList']
+            return this.$store.getters['coaches/filterList']
+        },
+        isCoach(){
+            return this.$store.getters['coaches/isCoach']
         }
     },
     methods:{

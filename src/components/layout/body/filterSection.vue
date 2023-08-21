@@ -4,17 +4,17 @@
     
     <section>
         <span>
-            <input type="checkbox" v-model="aw" value="frontend" id="frontend">
+            <input type="checkbox" v-model="this.$store.state.coaches.filter" value="frontend" id="frontend">
             <label for="frontend">Frontend</label>
         </span>
 
         <span>
-        <input type="checkbox" v-model="aw" value="backend" id="backend">
+        <input type="checkbox" v-model="this.$store.state.coaches.filter" value="backend" id="backend">
         <label for="backend">Backend</label>
         </span>
 
         <span>
-        <input type="checkbox" v-model="aw" value="career" id="career">
+        <input type="checkbox" v-model="this.$store.state.coaches.filter" value="career" id="career">
         <label for="career">Career</label>
         </span>
     </section>
@@ -23,9 +23,9 @@
 
 <script>
 export default {
-    data(){
-        return{
-            aw: ['frontend'],
+    computed:{
+        getFilter(){
+            return this.$store.getter.getFilter
         }
     },
 }

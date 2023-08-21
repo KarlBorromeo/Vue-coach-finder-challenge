@@ -3,6 +3,7 @@ import coachView from './components/layout/body/coach/coachView.vue'
 import coachForm from './components/layout/body/coach/coachForm.vue'
 import coachDetails from './components/layout/body/coach/coachDetails.vue'
 import coachContact from './components/layout/body/coach/coachContact.vue'
+import theRequests from './components/layout/body/requests/theRequest.vue'
 
 const route = createRouter({
     history: createWebHistory(),
@@ -12,8 +13,8 @@ const route = createRouter({
         {path:'/coaches/:id', component: coachDetails,props:true,
             children: [{path:'contact', component: coachContact}]
         },
-
         {path:'/createCoach',component: coachForm},
+        {path: '/requests',component: theRequests}
     ]
 })
 

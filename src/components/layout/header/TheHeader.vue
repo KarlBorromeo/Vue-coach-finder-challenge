@@ -6,7 +6,7 @@
             <!-- <button>All Coches</button>
             <button>Requests</button> -->
             <router-link to="/coaches">All Coches</router-link>
-            <!-- <router-link to="/aw">Requests</router-link> -->
+            <router-link to="/requests">Requests</router-link>
         </section>
     </div>   
 </article>
@@ -42,9 +42,10 @@ a{
     background-color: transparent;
    
     padding: .5rem 1rem;
-    color: rgba(255, 255, 255, 0.385);
+    color: rgba(255, 255, 255, 0.562);
+    border: 1px solid rgba(255, 255, 255, 0.511);
 }
 .router-link-active{
-     border: 1px solid rgba(255, 255, 255, 0.212);
+     border: none ;
 }
 </style>

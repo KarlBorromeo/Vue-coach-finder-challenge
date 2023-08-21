@@ -47,7 +47,7 @@ export default {
       console.log(this.localData)
     },
     indexClass(index){
-      console.log(index)
+      // console.log(index)
       return this.colorIndex[index];
     },
     contact(){
