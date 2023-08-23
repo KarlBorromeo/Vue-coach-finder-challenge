@@ -1,8 +1,9 @@
 <template>
   <filter-section></filter-section>
-  <base-card class="container">
+  <loading-screen v-if="isLoading"></loading-screen>
+  <base-card class="container" v-if="!isLoading">
     <div>
-        <base-button class="empty">Refresh</base-button>
+        <base-button class="empty" @click="getCoachList">Refresh</base-button>
         <base-button v-if="isCoach" class="fill" @click="registerForm">Register as Coach</base-button>
     </div>
     <coach-list v-for="coach in coachList" :key="coach.id"
@@ -16,22 +17,34 @@
 </template>
 
 <script>
+import LoadingScreen from '@/components/UI/LoadingScreen.vue'
 import FilterSection from '../filterSection.vue'
 import CoachList from './coachList.vue'
 export default {
-    components:{FilterSection, CoachList},
+    components:{FilterSection, CoachList,LoadingScreen  },
     computed:{
         coachList(){
+            // return this.$store.getters['coaches/coachList']
             return this.$store.getters['coaches/filterList']
         },
         isCoach(){
             return this.$store.getters['coaches/isCoach']
+        },
+        isLoading(){
+            return this.$store.getters['coaches/isLoading']
         }
     },
     methods:{
         registerForm(){
             this.$router.push('/createCoach');
+        },
+        getCoachList(){
+            console.log('refresh methods')
+            this.$store.dispatch('coaches/getCoachList');
         }
+    },
+    created(){
+        this.getCoachList()
     }
 }
 </script>

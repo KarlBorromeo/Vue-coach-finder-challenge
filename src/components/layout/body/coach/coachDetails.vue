@@ -44,7 +44,7 @@ export default {
     findObj(){
       const obj = this.data.find(item => item.id === this.id)
       this.localData = obj
-      console.log(this.localData)
+      console.log(this.$store.state.coaches.coaches)
     },
     indexClass(index){
       // console.log(index)
@@ -52,7 +52,7 @@ export default {
     },
     contact(){
       this.$router.push('/coaches/'+this.id+'/contact')
-    }
+    },
   },  
   computed:{
     fullname(){
@@ -70,7 +70,11 @@ export default {
   },
   created(){
     this.findObj()
+    
   },
+  beforeCreate(){
+    this.$store.commit('coaches/coachListLocal');
+  }
 
 }
 </script>

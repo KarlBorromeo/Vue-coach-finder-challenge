@@ -8,12 +8,12 @@ export default{
     filter(state){
         return state.filter
     },
-    filterList(state,getters){
+    filterList(_,getters){
         const tempList = [];
        for(let coach of getters.coachList){
          let counter = 0;
         for(let filter of getters.filter){
-           const index = coach.areas.findIndex(item=> item == filter)
+           const index = coach.areas.findIndex(item => item == filter)
            if(index>=0){
             counter++;
            }
@@ -23,5 +23,8 @@ export default{
         }
        }
        return tempList
-    }  
+    },
+    isLoading(state){
+        return state.isLoading
+    },
 }

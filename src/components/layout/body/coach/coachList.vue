@@ -35,7 +35,6 @@ export default {
       this.$router.push('/coaches/'+this.id)
     },
     indexClass(index){
-      // console.log(index)
       return this.colorIndex[index];
     },
     contact(){

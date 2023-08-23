@@ -1,8 +1,25 @@
 export default{
-    addCoach(state,payload){
-        state.coaches.push(payload);
+    //just oding this func cause of pre-set data
+    //solved bug when the contact component is reloaded directly
+    coachListLocal(state){
+        state.coaches = state.coachesHolderLocalData
     },
     setCoach(state){
         state.isCoach = false;
+    },
+    isLoading(state,bool){
+        state.isLoading = bool
+    },
+    showList(state,payload){
+        state.coaches = []
+        const stringData = JSON.stringify(state.coachesHolderLocalData)
+        state.coaches = JSON.parse(stringData)
+        if(payload.length>0){
+            payload.forEach(element => {
+            state.coaches.push(element)
+        });
+        }
+        
+        
     }
 }

@@ -28,13 +28,14 @@ dialog{
   width: 50%;
 }
 h4{
-   background-color: rgba(0, 0, 255, 0.358);
+   background-color: blue;
    margin: 0;
    padding: 5px 7px;
-   color: red;
+   color: black;
    text-align: center;
-   letter-spacing: 5px; 
-   font-weight: 900; 
+   letter-spacing: 2px; 
+   font-weight: 1000; 
+   font-size: large;
 }
 dialog{
   padding: 0;
@@ -47,6 +48,7 @@ p{
 button{
   margin: 0 7px 3px;
   background-color: transparent;
+  border: .5px solid rgb(128, 113, 113);
 }
 div{
   position: absolute;

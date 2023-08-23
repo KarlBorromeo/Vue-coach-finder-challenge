@@ -53,9 +53,9 @@ export default {
                 this.hourlyRate === null){
                     this.$store.state.isDialogVisible = true
                 }else{
-                this.$store.commit({
+                this.$store.dispatch({
                     type: 'coaches/addCoach',
-                    id: Date.now().toString(),
+                    id: new Date().toISOString(),
                     firstName: this.firstName,
                     lastName: this.lastName,
                     areas: this.area,
