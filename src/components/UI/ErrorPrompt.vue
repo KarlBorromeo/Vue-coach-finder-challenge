@@ -1,29 +1,25 @@
 <template>
-  <!-- <div>                                                                                                                                                             
-  </div> -->
-
-    <dialog open>
+  <dialog open>
       <h4>Error Message</h4> 
-      <p>Please complete all the details required. Input the desired inputs. Thank you!</p>
+      <p>Something Wrong to the Server/Connection</p>
       <footer>
         <button @click="closeDialog">close</button>
       </footer>
     </dialog>
-  
 </template>
 
 <script>
 export default {
-  methods:{
-    closeDialog(){
-      this.$store.state.coaches.isDialogVisible = false;
+    methods:{
+        closeDialog(){
+            this.$store.commit('coaches/isError',false)
+        }
     }
-  }
+
 }
 </script>
 
 <style scoped>
-
 dialog{
   position: absolute;
   top: 30vh;
@@ -50,12 +46,5 @@ button{
   margin: 0 7px 3px;
   background-color: transparent;
   border: .5px solid rgb(128, 113, 113);
-}
-div{
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  top: 1px;
-  background-color: rgba(84, 84, 78, 0.7);
 }
 </style>

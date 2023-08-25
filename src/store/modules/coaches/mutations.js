@@ -10,6 +10,9 @@ export default{
     isLoading(state,bool){
         state.isLoading = bool
     },
+    isError(state,bool){
+        state.error = bool
+    },
     showList(state,payload){
         state.coaches = []
         const stringData = JSON.stringify(state.coachesHolderLocalData)

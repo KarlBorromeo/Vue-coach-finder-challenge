@@ -27,4 +27,7 @@ export default{
     isLoading(state){
         return state.isLoading
     },
+    isError(state){
+        return state.error
+    }
 }

@@ -2,7 +2,8 @@
 <div>
   <filter-section></filter-section>
   <loading-screen v-if="isLoading"></loading-screen>
-  <base-card class="container" v-if="!isLoading">
+  <error-prompt v-if="isError && !isLoading"></error-prompt>
+  <base-card class="container" v-if="!isLoading && !isError">
     <section>
         <base-button class="empty" @click="getCoachList">Refresh</base-button>
         <base-button v-if="isCoach" class="fill" @click="registerForm">Register as Coach</base-button>
@@ -21,8 +22,9 @@
 import LoadingScreen from '@/components/UI/LoadingScreen.vue'
 import FilterSection from '../filterSection.vue'
 import CoachList from './coachList.vue'
+import ErrorPrompt from '@/components/UI/ErrorPrompt.vue'
 export default {
-    components:{FilterSection, CoachList,LoadingScreen  },
+    components:{FilterSection, CoachList,LoadingScreen, ErrorPrompt },
     computed:{
         coachList(){
             // return this.$store.getters['coaches/coachList']
@@ -33,6 +35,9 @@ export default {
         },
         isLoading(){
             return this.$store.getters['coaches/isLoading']
+        },
+        isError(){
+            return this.$store.getters['coaches/isError']
         }
     },
     methods:{

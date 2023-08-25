@@ -26,8 +26,9 @@ export default{
                 list.push(data[id])
             }
             context.commit('showList',list)
-        }else{
-            console.log('Something error')    
+            context.commit('isError',false)
+        }else{   
+            context.commit('isError',true)
         }
         
         context.commit('isLoading',false)
