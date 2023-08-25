@@ -29,9 +29,9 @@
         <div><base-button class="fill">Register</base-button></div>
     </form>
   </base-card>
-    <dim-display v-if="this.$store.state.isDialogVisible"></dim-display>
+    <dim-display v-if="this.$store.state.coaches.isDialogVisible"></dim-display>
   <transition name="aw">
-    <dialog-form v-if="this.$store.state.isDialogVisible"></dialog-form>
+    <dialog-form v-if="this.$store.state.coaches.isDialogVisible"></dialog-form>
   </transition>
 </div></template>
 
@@ -55,7 +55,7 @@ export default {
                 this.lastName === null ||
                 this.area === [] || 
                 this.hourlyRate === null){
-                    this.$store.state.isDialogVisible = true
+                    this.$store.state.coaches.isDialogVisible = true
                 }else{
                 this.$store.dispatch({
                     type: 'coaches/addCoach',

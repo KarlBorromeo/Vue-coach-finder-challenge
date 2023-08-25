@@ -6,6 +6,7 @@ export default {
     namespaced:true,
     state(){
         return{
+            isDialogVisible: false,
             isLoading: true,
             isCoach: true,
             filter: ['frontend','career'],

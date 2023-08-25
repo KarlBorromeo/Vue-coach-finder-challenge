@@ -16,7 +16,7 @@
 export default {
   methods:{
     closeDialog(){
-      this.$store.state.isDialogVisible = false;
+      this.$store.state.coaches.isDialogVisible = false;
     }
   }
 }
@@ -28,23 +28,21 @@ dialog{
   position: absolute;
   top: 30vh;
   margin: auto;
-  width: 50%;
+  width: 30%;
   animation: name duration timing-function delay iteration-count direction fill-mode;
+  padding: 0;
+  border: .1px solid red;
 }
 h4{
-   background-color: blue;
+   /* background-color: rgba(0, 0, 255, 0.237); */
    margin: 0;
    padding: 5px 7px;
-   color: black;
+   color: blue;
    text-align: center;
    letter-spacing: 2px; 
    font-weight: 1000; 
    font-size: large;
-}
-dialog{
-  padding: 0;
-  border: .1px solid red;
-  border-radius: 3px;
+   border-bottom: 1px solid blue;
 }
 p{
   padding: 0 .5rem;
