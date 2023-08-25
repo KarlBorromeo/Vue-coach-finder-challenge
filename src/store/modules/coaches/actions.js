@@ -16,24 +16,20 @@ export default{
         }).catch(error => console.log(error));
     },
 
-    getCoachList(context){
+    async getCoachList(context){
         context.commit('isLoading',true)        
         const list = [];
-        fetch('https://vue-coach-finder-78c8c-default-rtdb.firebaseio.com/coaches.json')
-        .then(response => response.json())
-        .then( data => {
-            
-            if(data != null){
-                const keys = Object.keys(data);
-                keys.forEach(key => {   
-                    list.push(data[key])
-                    context.commit('showList',data[key])
-                })
-            }     
-                     
+        const response = await fetch('https://vue-coach-finder-78c8c-default-rtdb.firebaseio.com/coaches.json');      
+        if(response.ok){
+            const data = await response.json();            
+            for(const id in data){
+                list.push(data[id])
+            }
             context.commit('showList',list)
-            context.commit('isLoading',false)
-        })
-        .catch(error => console.log(error))
+        }else{
+            console.log('Something error')    
+        }
+        
+        context.commit('isLoading',false)
     }
 }
