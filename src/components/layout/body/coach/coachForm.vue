@@ -1,4 +1,4 @@
-<template>
+<template><div>
   <base-card class="container">
     <form @submit.prevent="addCoach">
         <h3>Register as a coach now!</h3>
@@ -29,13 +29,17 @@
         <div><base-button class="fill">Register</base-button></div>
     </form>
   </base-card>
-  <dialog-form v-if="this.$store.state.isDialogVisible"></dialog-form>
-</template>
+    <dim-display v-if="this.$store.state.isDialogVisible"></dim-display>
+  <transition name="aw">
+    <dialog-form v-if="this.$store.state.isDialogVisible"></dialog-form>
+  </transition>
+</div></template>
 
 <script>
+import DimDisplay from '@/components/UI/DimDisplay.vue'
 import dialogForm from '../../dialogForm.vue'
 export default {
-  components: { dialogForm },
+  components: { dialogForm,DimDisplay },
     data(){
         return{
             hourlyRate: null,
@@ -72,6 +76,20 @@ export default {
 </script>
 
 <style scoped>
+.aw-enter-from, .aw-leave-to{
+  /* top: 0vh; */
+  opacity: 0;
+  /* transform: scale(0.8); */
+}
+.aw-enter-to, .aw-leave-from{
+  /* top: 30vh; */
+  opacity: 1;
+  /* transform: scale(1); */
+}
+.aw-enter-active, .aw-leave-active{
+  transition: all 0.5s ease-out;
+}
+
 
 div > label{
     display: flex;

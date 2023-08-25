@@ -1,13 +1,15 @@
 <template>
-  <div>                                                                                                                                                             
-  </div>
-  <dialog open>
-    <h4>Error Message</h4> 
-    <p>Please complete all the details required. Input the desired inputs. Thank you!</p>
-    <footer>
-      <button @click="closeDialog">close</button>
-    </footer>
-  </dialog>
+  <!-- <div>                                                                                                                                                             
+  </div> -->
+
+    <dialog open>
+      <h4>Error Message</h4> 
+      <p>Please complete all the details required. Input the desired inputs. Thank you!</p>
+      <footer>
+        <button @click="closeDialog">close</button>
+      </footer>
+    </dialog>
+  
 </template>
 
 <script>
@@ -21,11 +23,13 @@ export default {
 </script>
 
 <style scoped>
+
 dialog{
   position: absolute;
   top: 30vh;
   margin: auto;
   width: 50%;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 h4{
    background-color: blue;

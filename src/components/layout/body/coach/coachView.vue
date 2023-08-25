@@ -1,11 +1,12 @@
 <template>
+<div>
   <filter-section></filter-section>
   <loading-screen v-if="isLoading"></loading-screen>
   <base-card class="container" v-if="!isLoading">
-    <div>
+    <section>
         <base-button class="empty" @click="getCoachList">Refresh</base-button>
         <base-button v-if="isCoach" class="fill" @click="registerForm">Register as Coach</base-button>
-    </div>
+    </section>
     <coach-list v-for="coach in coachList" :key="coach.id"
       :id="coach.id"
       :firstName='coach.firstName'
@@ -14,8 +15,8 @@
       :hourlyRate="coach.hourlyRate"
       ></coach-list>
   </base-card>
+ </div>
 </template>
-
 <script>
 import LoadingScreen from '@/components/UI/LoadingScreen.vue'
 import FilterSection from '../filterSection.vue'
@@ -50,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-div{
+section{
     display: flex;
     justify-content: space-between;
     padding-bottom: .3rem;

@@ -1,4 +1,5 @@
 <template>
+  <div>
   <loading-screen v-if="isLoading"></loading-screen>
   <h1 v-if="!isLoading && isEmpty">No Request Received</h1>
   <base-card v-if="!isLoading && !isEmpty">
@@ -16,7 +17,7 @@
     </header>
     
   </base-card>
-  
+</div>
 </template>
 
 <script>
